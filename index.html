@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paracord</title>
+    <style>
+        dialog {
+            border: none;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body bgcolor="beige">
+    <h1>| Bienvenid@ |</h1>
+    <hr color="red" width="15%" align="left">
+    <hr color="teal" width="100%">
+
+    <p color="red">Haz clic <a href="https://drive.google.com/drive/folders/1R65h3b7wm8d80bSW20E497eEEQlI_Ve8?usp=drive_link" target="_blank">aqui</a> para acceder a la carpeta.</p>
+    
+    <a href="#" id="openModal">Aqui no</a>
+
+    <dialog id="myModal">
+        <p>La obediencia te persigue, pero tu eres mas rapido.</p>
+        <form method="dialog">
+            <button id="closeModal">Cerrar</button>
+        </form>
+    </dialog>
+    <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+    <footer>
+        <table border="1" align="right">
+            <tr>
+                <td>By</td>
+                <td>luisPortillo</td>
+            </tr>
+            <tr>
+                <td>Date</td>
+                <td>2025/02/20</td>
+            </tr>
+        </table>
+    </footer>
+
+    <script>
+        document.getElementById("openModal").addEventListener("click", function(event) {
+            event.preventDefault(); // Evita el comportamiento por defecto del enlace
+            document.getElementById("myModal").showModal();
+        });
+        document.getElementById("closeModal").addEventListener("click", function() {
+            document.getElementById("myModal").close();
+        });
+    </script>
+</body>
+</html>
