@@ -1,51 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
-    <body bgcolor="#ccf2ff">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paracord</title>
     <style>
+        body {
+            background-color: #ccf2ff;
+            transition: background-color 0.5s ease;
+            text-align: center;
+        }
         dialog {
             border: none;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #closeModal {
+            background-color: red;
+            color: white;
+        }
+        a {
+            text-decoration: none;
+            color: #191970;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        a:hover {
+            color: crimson;
+            font-size: 1.1em;
         }
     </style>
 </head>
-    <h1>| Hola, bienvenid@s |</h1>
-    <p style=font-family:Courier;color: #191970>CAMPORAMA REGIONAL LEGADO 2025</p>
+<body>
+    <h1 id="titulo">| Hola, bienvenid@s |</h1>
+    <p style="font-family:Courier;color: #191970">CAMPORAMA REGIONAL LEGADO 2025</p>
     <hr color="red" width="19%" align="left">
     <hr color="teal" width="100%">
     <h3>El enlace proporcionado te dirige a la carpeta de Google Drive.</h3>
-    <p style=font-family:Courier;color: #191970>Haz clic <a href="https://drive.google.com/drive/folders/1R65h3b7wm8d80bSW20E497eEEQlI_Ve8?usp=drive_link" target="_blank">aquí</a> para acceder a la carpeta.</p>
+    <p style="font-family:Courier;color: #191970">Haz clic <a href="https://drive.google.com/drive/folders/1R65h3b7wm8d80bSW20E497eEEQlI_Ve8?usp=drive_link" target="_blank">aquí</a> para acceder a la carpeta.</p>
+    <p style="font-family:Courier"><a href="#" id="openModal">Aquí no</a></p>
+    <button id="cambiarFondo">Cambiar Fondo</button>
     
-   <p style=font-family:Courier><a href="#" id="openModal">Aquí no</a></p>
-
     <dialog id="myModal">
-        
-        <form method="dialog">
-            <button id="closeModal">X</button>
-        </form>
-        <p>La obediencia te persigue, pero tú eres mas rápido.</p>
+        <p>La obediencia te persigue, pero tú eres más rápido.</p>
+        <button id="closeModal">Cerrar</button>
     </dialog>
-    <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-    <footer>
-        <table border="1" align="right" style=font-family:Courier>
-            <p >
-            <tr>
-                <td>By</td>
-                <td>luisPortillo</td>
-            </tr>
-            <tr>
-                <td>Date</td>
-                <td>2025/02/20</td>
-            </tr>
-                </p>
-        </table>
-    </footer>
-
+    
     <script>
         document.getElementById("openModal").addEventListener("click", function(event) {
             event.preventDefault();
@@ -54,6 +62,23 @@
         document.getElementById("closeModal").addEventListener("click", function() {
             document.getElementById("myModal").close();
         });
+        
+        document.getElementById("cambiarFondo").addEventListener("click", function() {
+            const colores = ["#ffcccb", "#ccffcc", "#ffff99", "#d1c4e9", "#80cbc4"];
+            document.body.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
+        });
+        
+        const titulo = "| Hola, bienvenid@s |";
+        let i = 0;
+        function escribirTexto() {
+            if (i < titulo.length) {
+                document.getElementById("titulo").textContent += titulo.charAt(i);
+                i++;
+                setTimeout(escribirTexto, 100);
+            }
+        }
+        document.getElementById("titulo").textContent = "";
+        escribirTexto();
     </script>
 </body>
 </html>
